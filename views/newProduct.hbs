@@ -25,8 +25,7 @@
         <nav class="navbar navbar-expand-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
-                    <img src="https://cdn-icons-png.flaticon.com/128/2133/2133049.png" alt="Logo" style="width:40px;"
-                        class="rounded-pill">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2911/2911639.png" alt="Logo" style="width:40px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -53,8 +52,7 @@
         <form action="/new" method="post">
             <div class="mb-3 mt-3">
                 <label for="txtName">Product Name:</label>
-                <input type="text" class="form-control" name="txtName" id="namefield" oninput="return empty()">
-                <span id="cfname"></span>
+                <input type="text" class="form-control" name="txtName" id="name">
             </div>
             <div class="mb-3">
                 <label for="txtPrice">Price:</label>
@@ -68,14 +66,18 @@
                 <label for="txtCategory">Category:</label>
                 <input type="text" class="form-control" name="txtCategory">
             </div>
-            <input class="btn btn-primary" type="submit" value="Insert" >
+            <div class="mb-3">
+                <label for="txtWeight">Weight:</label>
+                <input type="text" class="form-control" name="txtWeight">
+            </div>
+            <p id="warning" class="text-danger">{{warning}}</p>
+            <input class="btn btn-primary" type="submit" value="Insert">
         </form>
         <script>
-            function empty() {
-                if (document.getElementById("namefield").value < 5) {
-                    document.getElementById("cfname").innerHTML = "Name field must be longer than 5 characters! Please Try Again!";
-                    return false;
-                }
+            function validateWarning() {
+                const warning = document.getElementById("warning")
+                warning.innerHTML = ""
+                warning.setAttribute('hidden', true)
             }
         </script>
     </div>

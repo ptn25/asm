@@ -20,13 +20,7 @@ async function getAllProduct() {
     return results
 }
 
-async function updateProduct(id, name, price, pictureURL, category) {
-    let db = await getDB()
-    await db.collection("toys").updateOne({ _id: ObjectId(id) },
-        { $set: { "name": name, "price": price, "picture": pictureURL, "category": category } })
-}
-
-async function findProductById(id) {
+async function findProductByName(id) {
     let db = await getDB()
     const productToEdit = await db.collection("toys").findOne({ _id: ObjectId(id) })
     return productToEdit
@@ -45,4 +39,4 @@ async function findProductByName(nameSearch) {
     return result;
 }
 
-module.exports = { findProductByName, insertNewProduct, getAllProduct, updateProduct, findProductById, deleteProductById }
+module.exports = { findProductByName, insertNewProduct, getAllProduct, deleteProductById }
