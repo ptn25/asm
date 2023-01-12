@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient
-var url = 'mongodb://0.0.0.0:27017'
+var url = 'mongodb+srv://ptn:abc12345@cluster0.83sovm6.mongodb.net/?retryWrites=true&w=majority'
 const { ObjectId } = require('bson')
 
 async function getDB() {
